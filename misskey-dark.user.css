@@ -1,0 +1,60 @@
+/* ==UserStyle==
+@name           Misskey UI Adjustment
+@namespace      https://github.com/robflop/misskey-userstyle
+@version        1.0.0
+@description    Utilizes more of your screen space on Misskey when using 1920x1080. Made for personal usage, manual adjustment required.
+@author         robflop
+==/UserStyle== */
+@-moz-document domain("misskey.io") {
+    .mk-app > .contents .profile > ._content  {
+		/* Set profile description background to panel color */
+		background: var(--panel);
+	}
+	
+	.mk-app > .contents ._section > .ssazuxis._content > header._button {
+		/* Move header of profile panels like activity and drive files a bit to the right to accomodate below background color */
+		/* ssazuxis is the class name for profile stuff (so it's not applied to notes as well) at the version of writing this, update it for new versions */
+		padding-left: 25px;
+	}
+	
+	.mk-app > .contents ._section > .ssazuxis._content > header._button button._button {
+		/* Move right-side button (triangle) back to proper position to the left (shifted due to header margin) */
+		/* ssazuxis is the class name for profile stuff (so it's not applied to notes as well) at the version of writing this, update it for new versions */
+		padding-right: 15px;
+	}
+	
+	.mk-app > .contents ._section > .ssazuxis._content  {
+		/* Set profile panel background of Activity and Drive files to panel color */
+		/* ssazuxis is the class name for profile stuff (so it's not applied to notes as well) at the version of writing this, update it for new versions */
+		background: var(--panel);
+		border-radius: var(--radius);
+	}
+
+	.mk-app > .widgets {
+		/* Sets the background of the widget area to the same overlay as the timeline */
+		background: var(--wallpaperOverlay);
+	}
+	
+	.mk-app > .widgets > div {
+		/* Make the widget container display widgets side-by-side (you will need to adjust these values for your own usage) */
+		display: inline-flex;
+		flex: 1;
+		flex-wrap: wrap;
+		flex-direction: column;
+		place-content: flex-start;
+		width: 620px !important;
+		height: 943px;
+		padding-top: 92px;
+	}
+
+	.mk-app > .widgets > div > * {
+		/* Sets the margins for all widgets so they position next to each other nicely */
+		margin: 0 var(--margin) var(--margin) 0 !important;
+	}
+	
+	.mk-app > .contents ._section > ._content,
+	.mk-app > .contents ._section > ._title {
+		/* Make the timeline utilize more of the screen space on the left and right */
+		max-width: none;
+	}
+}
