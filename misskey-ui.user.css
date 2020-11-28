@@ -9,11 +9,6 @@
 	html {
 		font-family: Roboto,HelveticaNeue,Arial,sans-serif;
 	}
-
-	.mk-app > .widgets {
-		/* Sets the background of the widget area to the same overlay as the timeline */
-		background: var(--wallpaperOverlay);
-	}
 	
 	.mk-app > .widgets > div {
 		/* Make the widget container display widgets side-by-side (you will need to adjust these values for your own usage) */
