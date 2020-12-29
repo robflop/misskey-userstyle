@@ -18,7 +18,5 @@ This is also why I don't plan on giving any in-depth help in case this doesn't w
 Again, refer to above notice. This is only the way it looks exactly for me, but it should provide reference.
 
 ![Image of timeline](https://github.com/robflop/misskey-userstyle/blob/main/timeline.png?raw=true)
-![Image of Profile](https://github.com/robflop/misskey-userstyle/blob/main/profile.png?raw=true)
-![Image of Activity and Drive](https://github.com/robflop/misskey-userstyle/blob/main/activity_drive.png?raw=true)
 
 (RSS used in the image: LiveChart.me and ANN)
