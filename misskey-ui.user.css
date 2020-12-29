@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.0.3
+@version        1.0.4
 @description    Utilizes more of your screen space on Misskey when using 1920x1080. Made for personal usage, manual adjustment required.
 @author         robflop
 ==/UserStyle== */
@@ -31,5 +31,10 @@
 	.mk-app > .contents ._section > ._title {
 		/* Make the timeline utilize more of the screen space on the left and right */
 		max-width: none;
+	}
+	
+	.mk-app > .contents > main .nav {
+		/* Remove background from settings nav to make it look better (imo) */
+		background: none;
 	}
 }
