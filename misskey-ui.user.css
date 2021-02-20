@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.2.0
+@version        1.3.0
 @description    Utilizes more of your screen space on Misskey when using 1920x1080. Made for personal usage, manual adjustment required.
 @author         robflop
 ==/UserStyle== */
@@ -10,21 +10,36 @@
 		font-family: Roboto,HelveticaNeue,Arial,sans-serif;
 	}
 	
-	.mk-app > .widgets > div {
-		/* Make the widget container display widgets side-by-side (you will need to adjust these values for your own usage) */
-		display: inline-flex;
+	.mk-app > .widgets > div:nth-child(1) {
+		/* Element that doesn't seem to do anything but place a margin, which messes with my style */
+		display: none;
+	}
+	
+	.mk-app > .widgets > div:nth-child(2) {
+		/* Make the outer widget container (has the inner widget container and the "Edit widgets" button) wide enough to display the widgets side-by-side */
+		width: 620px;
+		padding-top: 90px;
+	}
+	
+	.mk-app > .widgets > div:nth-child(2) > div {
+		/* Make the inner widget container (has the actual widgets) a flexbox to display its widgets side-by-side */
+		height: 830px;
+		display: flex;
 		flex: 1;
 		flex-wrap: wrap;
 		flex-direction: column;
 		place-content: flex-start;
-		width: 620px !important;
-		height: 950px;
-		padding-top: 75px;
 	}
-
-	.mk-app > .widgets > div > * {
-		/* Sets the margins for all widgets so they position next to each other nicely */
-		margin: 0 var(--margin) var(--margin) 0 !important;
+	
+	.mk-app > .widgets .widget {
+		/* Make each widget only be as wide as its contents are and set their margins */
+		margin: 0 var(--margin) var(--margin) 0;
+		width: 100%;
+	}
+	
+	.mk-app > .widgets > div:nth-child(2) > button {
+		/* Editing widgets is broken with the style enabled and I'm not gonna fix it, so hide the button (also because I don't change my widgets anyway) */
+		display: none;
 	}
 	
 	.mk-app > .contents ._section > ._content,
