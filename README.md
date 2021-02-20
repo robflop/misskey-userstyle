@@ -20,3 +20,6 @@ Again, refer to above notice. This is only the way it looks exactly for me, but 
 ![Image of timeline](https://github.com/robflop/misskey-userstyle/blob/main/timeline.png?raw=true)
 
 (RSS used in the image: LiveChart.me and ANN)
+
+Notes for myself:
+- Notification widget height: 430px
