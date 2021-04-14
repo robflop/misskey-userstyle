@@ -42,14 +42,14 @@
 		display: none;
 	}
 	
-	.mk-app > .contents ._section > ._content,
-	.mk-app > .contents ._section > ._title {
+	.mk-app > .contents .content ._root {
 		/* Make the timeline utilize more of the screen space on the left and right */
-		max-width: none;
+		max-width: calc(100% - 5%);
 	}
 	
-	.mk-app > .contents > main .nav {
-		/* Remove background from settings nav to make it look better (imo) */
-		background: none;
+	.mk-app > .contents .content ._section {
+		/* Make the favorites/notifcations/some other utilize more of the screen space on the left and right */
+		max-width: calc(100% - 5%);
+		margin-left: 24px;
 	}
 }
