@@ -43,8 +43,9 @@
 	}
 	
 	.mk-app > .contents .content ._root {
-		/* Make the timeline utilize more of the screen space on the left and right */
+		/* Make the timeline utilize more of the screen space on the left and right and remove bg */
 		max-width: calc(100% - 5%);
+		background: none;
 	}
 	
 	.mk-app > .contents .content ._section {
