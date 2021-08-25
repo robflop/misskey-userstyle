@@ -53,4 +53,9 @@
 		max-width: calc(100% - 5%);
 		margin-left: 24px;
 	}
+	
+	/** play mfm on hover **/
+	.article:not(:hover) span, .reply-to:not(:hover) span {
+		animation: none !important;
+	}
 }
