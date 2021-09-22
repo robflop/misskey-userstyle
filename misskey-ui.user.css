@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.7.0
-@description    Utilizes more of your screen space on Misskey when using 1920x1080. Made for personal usage, manual adjustment required.
+@version        1.7.1
+@description    Modifies the Misskey "pope" UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
 @-moz-document domain("misskey.io") {
@@ -47,6 +47,7 @@
 	/* Make background set in settings visible again */
 	.mk-app > .contents,
 	.mk-app > .contents > .header,
+	.mk-app > .contents .content > div,
 	.mk-app > .widgets {
 		background: revert !important;
 	}
