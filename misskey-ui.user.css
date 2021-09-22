@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.5.0
+@version        1.6.0
 @description    Utilizes more of your screen space on Misskey when using 1920x1080. Made for personal usage, manual adjustment required.
 @author         robflop
 ==/UserStyle== */
@@ -54,8 +54,15 @@
 		margin-left: 24px;
 	}
 	
-	/** play mfm on hover **/
+	/** Play mfm on hover only **/
 	.article:not(:hover) span, .reply-to:not(:hover) span {
 		animation: none !important;
+	}
+	
+	/** Remove bouncing animation when clicking menu items **/
+	._anime_bounce_standBy,
+	._anime_bounce {
+    		animation: none !important;
+    		transform: none !important;
 	}
 }
