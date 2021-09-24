@@ -45,21 +45,21 @@
 	}
 	
 	/* Make background set in settings visible again */
-	.mk-app > .sidebar > .nav > div,
-	.mk-app > .sidebar > .nav > div > button.post,
-	.mk-app > .sidebar > .nav > div > button.account,
-	.mk-app > .contents,
-	.mk-app > .contents > .header,
-	.mk-app > .contents .content > div,
-	.mk-app > .contents .content ._content > .notes,
-	.mk-app > .widgets {
+	.mk-app > .sidebar > .nav > div, /* Most of the Navbar  */
+	.mk-app > .sidebar > .nav > div > button.post, /* New Note button */
+	.mk-app > .sidebar > .nav > div > button.account, /* Account selection button */
+	.mk-app > .contents, /* Main timelime */
+	.mk-app > .contents > .header, /* Header bar */
+	.mk-app > .contents .content > div, /* Notification page */
+	.mk-app > .contents .content ._content > .notes, /* "Popular" page */
+	.mk-app > .widgets /* Widgets area */ {
 		background: none !important;
 	}
 	
 	/* Make main content area wider and add padding if not already existing */
-	.mk-app > .contents > main > .content > div,
-	.mk-app > .contents > main > .content .notifications,
-	.mk-app > .contents > main > .content .notes {
+	.mk-app > .contents > main > .content > div, /* Main timeline */
+	.mk-app > .contents > main > .content .notifications, /* Notifications page */
+	.mk-app > .contents > main > .content .notes /* "Popular" page */ {
 		margin: revert;
 		max-width: revert;
 		padding: var(--margin);
