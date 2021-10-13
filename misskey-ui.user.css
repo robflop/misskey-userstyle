@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.7.7
+@version        1.7.8
 @description    Modifies the Misskey "pope" UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
@@ -51,6 +51,7 @@
 	.mk-app > .contents, /* Main timelime */
 	.mk-app > .contents > .header, /* Header bar */
 	.mk-app > .contents .content .tl, /* Loading indicator element */
+	.mk-app > .contents .content > div, /* Details of specific notes (threads too) */
 	.mk-app > .contents .content > div > div, /* Notification page */
 	.mk-app > .contents .content ._content > .notes, /* "Popular" page */
 	.mk-app > .widgets /* Widgets area */ {
