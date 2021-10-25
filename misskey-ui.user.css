@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.7.8
+@version        1.7.9
 @description    Modifies the Misskey "pope" UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
@@ -49,21 +49,18 @@
 	.mk-app > .sidebar > .nav > div > button.post, /* New Note button */
 	.mk-app > .sidebar > .nav > div > button.account, /* Account selection button */
 	.mk-app > .contents, /* Main timelime */
-	.mk-app > .contents > .header, /* Header bar */
 	.mk-app > .contents .content .tl, /* Loading indicator element */
-	.mk-app > .contents .content > div, /* Details of specific notes (threads too) */
-	.mk-app > .contents .content > div > div, /* Notification page */
-	.mk-app > .contents .content ._content > .notes, /* "Popular" page */
+	.mk-app > .contents .content > div > div:nth-child(2) > div > div > div, /* Note thread pages */
+	.mk-app > .contents .content > div > div, /* Notification page header */
 	.mk-app > .widgets /* Widgets area */ {
-		background: none !important;
+		background: none !important; /* Some backgrounds are applied at element-level, thus important is needed */
 	}
 	
-	/* Make main content area wider and add padding if not already existing */
-	.mk-app > .contents > main > .content > div > div, /* Main timeline */
-	.mk-app > .contents > main > .content .notifications, /* Notifications page */
+	/* Make main content areas wider */
+	.mk-app > .contents .content > div > div:nth-child(2) > div, /* Main timeline */
+	.mk-app > .contents .content > div > div:nth-child(2) > div > div, /* Notifications page */
 	.mk-app > .contents > main > .content .notes /* "Popular" page */ {
-		margin: revert;
-		max-width: revert;
+		max-width: revert !important; /* Some widths are applied element-level, thus important is needed */
 	}
 	
 	/** Play mfm on hover only **/
