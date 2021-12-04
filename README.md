@@ -6,6 +6,7 @@ A hacked together userstyle I made for myself to use on Misskey
 I made this for my exact environment, i.e. browser, resolution and the way I like my screen space to look on Misskey.
 
 It's intended to be used with the default UI (previously "pope") at the time of writing, and will likely break other UIs.
+It's also always based on the latest version of Misskey running on the instance I use (misskey.io), so depending on your instance it may not work.
 
 The part that adjusts widgets will most likely not work 100% (or even at all) for anyone else that has a different setup, e.g. different widgets etc.
 
