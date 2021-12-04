@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.8.1
+@version        1.9.0
 @description    Modifies the Misskey "pope" UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
@@ -13,18 +13,18 @@
 	}
 	
 	/* Remove element that doesn't seem to do anything but place a margin, which messes with my style */
-	.mk-app > .widgets > div:nth-child(1) {
+	.wallpaper > .widgets > div:nth-child(1) {
 		display: none;
 	}
 	
 	/* Make the outer widget container (has the inner widget container and the "Edit widgets" button) wide enough to display the widgets side-by-side */
-	.mk-app > .widgets > div:nth-child(2) {
+	.wallpaper > .widgets > div:nth-child(2) {
 		width: 620px;
 		padding-top: 74px;
 	}
 	
 	/* Make the inner widget container (has the actual widgets) a flexbox to display its widgets side-by-side */
-	.mk-app > .widgets > div:nth-child(2) > div {
+	.wallpaper > .widgets > div:nth-child(2) > div {
 		height: 835px;
 		display: flex;
 		flex: 1;
@@ -34,33 +34,33 @@
 	}
 	
 	/* Make each widget only be as wide as its contents are and set their margins */
-	.mk-app > .widgets .widget {
+	.wallpaper > .widgets .widget {
 		margin: 0 var(--margin) var(--margin) 0;
 		width: 100%;
 	}
 	
 	/* Editing widgets is broken with the style enabled and I'm not gonna fix it, so hide the button (also because I don't change my widgets anyway) */
-	.mk-app > .widgets > div:nth-child(2) > button {
+	.wallpaper > .widgets > div:nth-child(2) > button {
 		display: none;
 	}
 	
 	/* Make background set in settings visible again */
-	.mk-app > .sidebar > .nav > div, /* Most of the Navbar  */
-	.mk-app > .sidebar > .nav > div > button.post, /* New Note button */
-	.mk-app > .sidebar > .nav > div > button.account, /* Account selection button */
-	.mk-app > .contents, /* Main timelime */
-	.mk-app > .contents .content .tl, /* Loading indicator element */
-	.mk-app > .contents .content > div > div:nth-child(2) > div > div > div, /* Note thread pages */
-	.mk-app > .contents .content > div > div, /* Notification page header */
-	.mk-app > .widgets /* Widgets area */ {
+	.wallpaper > .sidebar > .nav > div, /* Most of the Navbar  */
+	.wallpaper > .sidebar > .nav > div > button.post, /* New Note button */
+	.wallpaper > .sidebar > .nav > div > button.account, /* Account selection button */
+	.wallpaper > .contents, /* Main timelime */
+	.wallpaper > .contents .content .tl, /* Loading indicator element */
+	.wallpaper > .contents .content > div > div:nth-child(2) > div > div > div, /* Note thread pages */
+	.wallpaper > .contents .content > div > div, /* Notification page header */
+	.wallpaper > .widgets /* Widgets area */ {
 		background: none !important; /* Some backgrounds are applied at element-level, thus important is needed */
 	}
 	
 	/* Make main content areas wider */
-	.mk-app > .contents .content > div > div:nth-child(2) > div, /* Main timeline */
-	.mk-app > .contents .content > div > div:nth-child(2) > div > div > div, /* Profile pages */
-	.mk-app > .contents .content > div > div:nth-child(2) > div > div, /* Notifications page */
-	.mk-app > .contents > main > .content .notes /* "Popular" page */ {
+	.wallpaper > .contents .content > div > div:nth-child(2) > div, /* Main timeline */
+	.wallpaper > .contents .content > div > div:nth-child(2) > div > div > div, /* Profile pages */
+	.wallpaper > .contents .content > div > div:nth-child(2) > div > div, /* Notifications page */
+	.wallpaper > .contents > main > .content .notes /* "Popular" page */ {
 		max-width: revert !important; /* Some widths are applied element-level, thus important is needed */
 	}
 	
