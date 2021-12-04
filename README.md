@@ -25,4 +25,4 @@ Again, refer to above notice. This is only the way it looks exactly for me, but 
 (RSS used in the image: LiveChart.me and ANN)
 
 Notes for myself:
-- Notification widget height: 470px
+- Notification widget height: 455px
