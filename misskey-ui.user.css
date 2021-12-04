@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.9.0
+@version        1.9.1
 @description    Modifies the Misskey "pope" UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
@@ -25,7 +25,8 @@
 	
 	/* Make the inner widget container (has the actual widgets) a flexbox to display its widgets side-by-side */
 	.wallpaper > .widgets > div:nth-child(2) > div {
-		height: 835px;
+		margin: 0;
+		height: 810px;
 		display: flex;
 		flex: 1;
 		flex-wrap: wrap;
@@ -38,22 +39,23 @@
 		margin: 0 var(--margin) var(--margin) 0;
 		width: 100%;
 	}
-	
-	/* Editing widgets is broken with the style enabled and I'm not gonna fix it, so hide the button (also because I don't change my widgets anyway) */
-	.wallpaper > .widgets > div:nth-child(2) > button {
-		display: none;
-	}
+
 	
 	/* Make background set in settings visible again */
-	.wallpaper > .sidebar > .nav > div, /* Most of the Navbar  */
-	.wallpaper > .sidebar > .nav > div > button.post, /* New Note button */
-	.wallpaper > .sidebar > .nav > div > button.account, /* Account selection button */
+	.wallpaper > .sidebar > div, /* Most of the Sidebar  */
+	.wallpaper > .sidebar > div > button.post, /* New Note button */
+	.wallpaper > .sidebar > div > button.account, /* Account selection button */
 	.wallpaper > .contents, /* Main timelime */
 	.wallpaper > .contents .content .tl, /* Loading indicator element */
 	.wallpaper > .contents .content > div > div:nth-child(2) > div > div > div, /* Note thread pages */
 	.wallpaper > .contents .content > div > div, /* Notification page header */
 	.wallpaper > .widgets /* Widgets area */ {
 		background: none !important; /* Some backgrounds are applied at element-level, thus important is needed */
+	}
+	
+	/* Remove sidebar border as part of making bg visible again */
+	.wallpaper > .sidebar {
+		border-right: none !important;
 	}
 	
 	/* Make main content areas wider */
