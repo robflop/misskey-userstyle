@@ -20,7 +20,7 @@
 	/* Make the outer widget container (has the inner widget container and the "Edit widgets" button) wide enough to display the widgets side-by-side */
 	.wallpaper > .widgets > div:nth-child(2) {
 		width: 620px;
-		padding-top: 74px;
+		padding-top: 85px;
 	}
 	
 	/* Make the inner widget container (has the actual widgets) a flexbox to display its widgets side-by-side */
