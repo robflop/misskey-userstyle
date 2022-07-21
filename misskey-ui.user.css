@@ -1,15 +1,15 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.9.1
-@description    Modifies the Misskey "pope" UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
+@version        1.10.0
+@description    Modifies the Misskey default UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
 @-moz-document domain("misskey.io") {
 	
 	/* Replace Misskey default font with Roboto */
 	html {
-		font-family: Roboto,HelveticaNeue,Arial,sans-serif;
+		font-family: Roboto,HelveticaNeue,Arial,sans-serif !important;
 	}
 	
 	/* Remove element that doesn't seem to do anything but place a margin, which messes with my style */
@@ -40,11 +40,17 @@
 		width: 100%;
 	}
 
+	/* Fit two RSS widgets on the sidebar under another */
+	.wallpaper > .widgets .widget.mkw-rss {
+		max-height: 377px !important
+	}
+
 	
 	/* Make background set in settings visible again */
-	.wallpaper > .sidebar > div, /* Most of the Sidebar  */
-	.wallpaper > .sidebar > div > button.post, /* New Note button */
-	.wallpaper > .sidebar > div > button.account, /* Account selection button */
+	.wallpaper > .sidebar > .body, /* Most of the Sidebar  */
+	.wallpaper > .sidebar > .body > .top, /* Sidebar top */
+	.wallpaper > .sidebar > .body > .middle, /* Sidebar middle */
+	.wallpaper > .sidebar > .body > .bottom, /* Sidebar bottom  */
 	.wallpaper > .contents, /* Main timelime */
 	.wallpaper > .contents .content .tl, /* Loading indicator element */
 	.wallpaper > .contents .content > div > div:nth-child(2) > div > div > div, /* Note thread pages */
@@ -53,16 +59,19 @@
 		background: none !important; /* Some backgrounds are applied at element-level, thus important is needed */
 	}
 	
+	/* Remove background from the top navbar */
+	.wallpaper > .contents main > div:nth-child(1) > div > div:nth-child(1) > div {
+		background: none !important;
+		backdrop-filter: none !important;
+	}
+	
 	/* Remove sidebar border as part of making bg visible again */
 	.wallpaper > .sidebar {
 		border-right: none !important;
 	}
 	
 	/* Make main content areas wider */
-	.wallpaper > .contents .content > div > div:nth-child(2) > div, /* Main timeline */
-	.wallpaper > .contents .content > div > div:nth-child(2) > div > div > div, /* Profile pages */
-	.wallpaper > .contents .content > div > div:nth-child(2) > div > div, /* Notifications page */
-	.wallpaper > .contents > main > .content .notes /* "Popular" page */ {
+	.wallpaper > .contents main > div:nth-child(1) > div > div:nth-child(2) > div > div {
 		max-width: revert !important; /* Some widths are applied element-level, thus important is needed */
 	}
 	
