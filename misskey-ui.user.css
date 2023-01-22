@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.11.0
+@version        1.12.0
 @description    Modifies the Misskey default UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
@@ -12,25 +12,43 @@
 		font-family: Roboto,HelveticaNeue,Arial,sans-serif !important;
 	}
 	
+	/* Set background again */
     #misskey_app {
         background-image: url(https://s3.arkjp.net/misskey/fece7b5c-e59f-43d8-b114-2d3be3d1a05a.png);
+		background-attachment: fixed;
     }
-    
+
+	/* Make background set in settings visible again */
+	#misskey_app > div > div:nth-of-type(1) > div.body, /* Most of the Sidebar  */
+	#misskey_app > div > div:nth-of-type(1) > div.body > .top, /* Sidebar top */
+	#misskey_app > div > div:nth-of-type(1) > div.body > .middle, /* Sidebar middle */
+	#misskey_app > div > div:nth-of-type(1) > div.body > .bottom, /* Sidebar bottom  */
+	#misskey_app > div > div:nth-of-type(2), /* Main timelime */
+	#misskey_app > div > div:nth-of-type(2) > div:nth-child(2) > main > div:nth-child(1) > div > div:nth-child(1) > div, /* Menu bar */
+	#misskey_app > div > div:nth-of-type(3) /* Widgets area */ {
+		background: none !important; /* Some backgrounds are applied at element-level, thus important is needed */
+	}
+	
+	/* Make main content areas wider */
+	#misskey_app > div > div:nth-of-type(2) > div:nth-child(2) > main > div:nth-child(1) > div > div:nth-child(2) > div > div {
+		max-width: revert !important; /* Some widths are applied element-level, thus important is needed */
+	}
+	
 	/* Remove element that doesn't seem to do anything but place a margin, which messes with my style */
-	#misskey_app > .widgets > div:nth-child(1) {
+	#misskey_app > div > div:nth-of-type(3) > div:nth-child(1) {
 		display: none;
 	}
 	
 	/* Make the outer widget container (has the inner widget container and the "Edit widgets" button) wide enough to display the widgets side-by-side */
-	#misskey_app .widgets > div:nth-child(2) {
+	#misskey_app > div > div:nth-of-type(3) > div:nth-child(2) {
 		width: 620px;
-		padding-top: 85px;
+		padding-top: 75px !important; /* Important needed to override element-level css */
+		display: flex;
 	}
 	
 	/* Make the inner widget container (has the actual widgets) a flexbox to display its widgets side-by-side */
-	#misskey_app .widgets > div:nth-child(2) > div {
-		margin: 0;
-		height: 810px;
+	#misskey_app > div > div:nth-of-type(3) > div:nth-child(2) > div:nth-child(1) {
+		height: 840px;
 		display: flex;
 		flex: 1;
 		flex-wrap: wrap;
@@ -38,53 +56,29 @@
 		place-content: flex-start;
 	}
 	
-	/* Make each widget only be as wide as its contents are and set their margins */
-	#misskey_app .widgets .widget {
+	/* Hide "Edit Widgets" button */
+	#misskey_app > div > div:nth-of-type(3) > div:nth-child(2) > button:nth-child(2) {
+		display: none;
+	}
+	
+	/* Make each widget take half the widget area's width (two column setup)*/
+	#misskey_app > div > div:nth-of-type(3)  div[class*="mkw"] {
 		margin: 0 var(--margin) var(--margin) 0;
-		width: 100%;
+		width: 50%;
 	}
 
 	/* Fit two RSS widgets on the sidebar under another */
-	#misskey_app .widgets .widget.mkw-rss {
-		max-height: 386px !important
-	}
-
-	
-	/* Make background set in settings visible again */
-	#misskey_app .sidebar > .body, /* Most of the Sidebar  */
-	#misskey_app .sidebar > .body > .top, /* Sidebar top */
-	#misskey_app .sidebar > .body > .middle, /* Sidebar middle */
-	#misskey_app .sidebar > .body > .bottom, /* Sidebar bottom  */
-	#misskey_app .contents, /* Main timelime */
-	#misskey_app .contents .content .tl, /* Loading indicator element */
-	#misskey_app .contents .content > div > div:nth-child(2) > div > div > div, /* Note thread pages */
-	#misskey_app .contents .content > div > div, /* Notification page header */
-	#misskey_app .widgets /* Widgets area */ {
-		background: none !important; /* Some backgrounds are applied at element-level, thus important is needed */
+	#misskey_app > div > div:nth-of-type(3) div[class*="mkw-rss"] {
+		max-height: 404px;
+		max-width: 300px;
 	}
 	
-	/* Remove background from the top navbar */
-	#misskey_app .contents main > div:nth-child(1) > div > div:nth-child(1) > div {
-		background: none !important;
-		backdrop-filter: none !important;
-	}
-	
-	/* Remove sidebar border as part of making bg visible again */
-	#misskey_app .sidebar {
-		border-right: none !important;
-	}
-	
-	/* Make main content areas wider */
-	#misskey_app .contents main > div:nth-child(1) > div > div:nth-child(2) > div > div {
-		max-width: revert !important; /* Some widths are applied element-level, thus important is needed */
-	}
-	
-	/** Play mfm on hover only **/
+	/* Play mfm on hover only */
 	.article:not(:hover) span, .reply-to:not(:hover) span {
 		animation: none !important;
 	}
 	
-	/** Remove bouncing animation when clicking menu items **/
+	/* Remove bouncing animation when clicking menu items */
 	._anime_bounce,
 	._anime_bounce_ready,
 	._anime_bounce_standBy {
