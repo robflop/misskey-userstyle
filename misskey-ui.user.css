@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Misskey UI Adjustment
 @namespace      https://github.com/robflop/misskey-userstyle
-@version        1.12.0
+@version        1.13.0
 @description    Modifies the Misskey default UI to utilize more screen space and other misc UI changes. Likely requires manual adjustment for other environments.
 @author         robflop
 ==/UserStyle== */
@@ -17,8 +17,12 @@
         background-image: url(https://s3.arkjp.net/misskey/fece7b5c-e59f-43d8-b114-2d3be3d1a05a.png);
 		background-attachment: fixed;
     }
+	/* Removes background filter from top nav bar to properly display the above image */
+	#misskey_app > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div {
+		background: none !important; /* Needs important because this has an element-level style */
+	}
 
-	/* Make background set in settings visible again */
+	/* Make background image set above visible */
 	#misskey_app > div > div:nth-of-type(1) > div.body, /* Most of the Sidebar  */
 	#misskey_app > div > div:nth-of-type(1) > div.body > .top, /* Sidebar top */
 	#misskey_app > div > div:nth-of-type(1) > div.body > .middle, /* Sidebar middle */
@@ -30,45 +34,41 @@
 	}
 	
 	/* Make main content areas wider */
-	#misskey_app > div > div:nth-of-type(2) > div:nth-child(2) > main > div:nth-child(1) > div > div:nth-child(2) > div > div {
+	#misskey_app > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div > div {
 		max-width: revert !important; /* Some widths are applied element-level, thus important is needed */
 	}
 	
-	/* Remove element that doesn't seem to do anything but place a margin, which messes with my style */
-	#misskey_app > div > div:nth-of-type(3) > div:nth-child(1) {
-		display: none;
-	}
-	
 	/* Make the outer widget container (has the inner widget container and the "Edit widgets" button) wide enough to display the widgets side-by-side */
-	#misskey_app > div > div:nth-of-type(3) > div:nth-child(2) {
+	#misskey_app > div > div:nth-of-type(3) {
 		width: 620px;
 		padding-top: 75px !important; /* Important needed to override element-level css */
-		display: flex;
+		overflow-y: hidden; /* Hide Y-overflow because this script is intended to make things displayable without scrolling */
 	}
 	
 	/* Make the inner widget container (has the actual widgets) a flexbox to display its widgets side-by-side */
-	#misskey_app > div > div:nth-of-type(3) > div:nth-child(2) > div:nth-child(1) {
+	#misskey_app > div > div:nth-of-type(3) > div > div:nth-child(1) {
 		height: 840px;
 		display: flex;
 		flex: 1;
 		flex-wrap: wrap;
 		flex-direction: column;
 		place-content: flex-start;
+		margin-right: 10px;
 	}
 	
 	/* Hide "Edit Widgets" button */
-	#misskey_app > div > div:nth-of-type(3) > div:nth-child(2) > button:nth-child(2) {
+	#misskey_app > div > div:nth-of-type(3) > div > button:nth-child(2) {
 		display: none;
 	}
 	
-	/* Make each widget take half the widget area's width (two column setup)*/
-	#misskey_app > div > div:nth-of-type(3)  div[class*="mkw"] {
+	/* Make each widget take half the widget area's width (two column setup) */
+	div[class*="mkw"], div[data-cy-mkw-calendar], div[data-cy-mkw-clock] {
 		margin: 0 var(--margin) var(--margin) 0;
 		width: 50%;
 	}
 
 	/* Fit two RSS widgets on the sidebar under another */
-	#misskey_app > div > div:nth-of-type(3) div[class*="mkw-rss"] {
+	div[class*="mkw-rss"] {
 		max-height: 404px;
 		max-width: 300px;
 	}
